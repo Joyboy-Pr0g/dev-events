@@ -54,6 +54,9 @@ export async function connectToDatabase(): Promise<Mongoose> {
 
   // If no connection attempt is in flight yet, start one.
   if (!cached.promise) {
+    if(!MONGODB_URI) {
+      throw new Error("MongoDB URI environment variable in .env");
+    }
     cached.promise = mongoose.connect(MONGODB_URI, {
       // Prevents buffering model calls while the connection is being
       // established; surfaces connection errors immediately instead.
