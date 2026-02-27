@@ -2,8 +2,9 @@ import Image from "next/image";
 import {ExploreBtn} from "@/components/Exporebtn";
 import EventCard from "@/components/EventCard";
 import {events} from "@/app/lib/constants";
+import {fetchData} from "@/app/lib/api/data";
 
-export default function Home() {
+export default async function Home() {
     return (
         <section>
             <h1 className={"text-center"}>Welcome to Next.js <br/> Programming you should Learn!</h1>
